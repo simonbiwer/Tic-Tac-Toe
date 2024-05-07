@@ -1,0 +1,12 @@
+--cpu Cortex-M7.fp.sp
+".\bin\keil\stm32f7xx\main.o"
+".\bin\keil\stm32f7xx\lib.o"
+".\bin\keil\stm32f7xx\rtoscontext.o"
+".\bin\keil\stm32f7xx\startup_stm32f769xx.o"
+".\bin\keil\stm32f7xx\rtos.o"
+".\bin\keil\stm32f7xx\disp_otm8009a.o"
+".\bin\keil\stm32f7xx\touch_ft6206.o"
+--strict --scatter ".\Bin\Keil\STM32F7xx\main.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Bin\Keil\STM32F7xx\main.map" -o .\Bin\Keil\STM32F7xx\main.axf

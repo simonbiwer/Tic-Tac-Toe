@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="main" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="main" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Bin/GCC/Virtual" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-ffunction-sections" />
+					<Add option="-fdata-sections" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,-gc-sections" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-DMCU_VIRTUAL" />
+			<Add option="-DUSE_CHARACTER_DISPLAY" />
+			<Add directory="./Src" />
+			<Add directory="./../EmbSysLib/Src" />
+			<Add directory="./../EmbSysLib/Src/MCU/Virtual" />
+		</Compiler>
+		<Linker>
+			<Add library="C:\Bin\CodeBlocks\MinGW\lib\libws2_32.a" />
+		</Linker>
+		<Unit filename="../EmbSysLib/Src/Module/RTOS.cpp" />
+		<Unit filename="../EmbSysLib/Src/Module/RTOS.h" />
+		<Unit filename="../EmbSysLib/Src/lib.cpp" />
+		<Unit filename="../EmbSysLib/Src/lib.h" />
+		<Unit filename="Src/configVirtual.h" />
+		<Unit filename="Src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

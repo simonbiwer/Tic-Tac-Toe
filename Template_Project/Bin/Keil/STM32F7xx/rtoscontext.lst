@@ -1,0 +1,71 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             |.text|, CODE, READONLY
+    2 00000000                 THUMB
+    3 00000000         
+    4 00000000         save_context
+                               FUNCTION
+    5 00000000                 EXPORT           save_context
+    6 00000000 F3EF 8008       MRS              r0, msp
+    7 00000004 E920 0FF0       STMDB            r0!, {r4-r11}
+    8 00000008 F380 8808       MSR              msp, r0
+    9 0000000C ED2D 0A20       VPUSH.32         {s0-s31}
+   10 00000010 F3EF 8008       MRS              r0, msp
+   11 00000014 4770            BX               lr
+   12 00000016                 ENDP
+   13 00000016         
+   14 00000016         load_context
+                               FUNCTION
+   15 00000016                 EXPORT           load_context
+   16 00000016 F380 8808       MSR              msp, r0     ;
+   17 0000001A ECBD 0A20       VPOP.32          {s0-s31}
+   18 0000001E F3EF 8008       MRS              r0, msp
+   19 00000022 E8B0 0FF0       LDMFD            r0!, {r4-r11}
+   20 00000026 F380 8808       MSR              msp, r0
+   21 0000002A 4770            BX               lr
+   22 0000002C                 ENDP
+   23 0000002C         
+   24 0000002C                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M7.fp.sp --apcs=
+interwork --depend=.\bin\keil\stm32f7xx\rtoscontext.d -o.\bin\keil\stm32f7xx\rt
+oscontext.o -I.\RTE\_Target -IC:\Bin\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.14.1
+\Drivers\CMSIS\Device\ST\STM32F7xx\Include -IC:\Bin\Keil_v5\ARM\CMSIS\Include -
+-predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 524" --predefine
+="STM32F769xx SETA 1" --list=.\bin\keil\stm32f7xx\rtoscontext.lst ..\EmbSysLib\
+Src\MCU\STM32F7xx\Sys\Keil\RTOScontext.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 1 in file ..\EmbSysLib\Src\MCU\STM32F7xx\Sys\Keil\RTOScontext.s
+   Uses
+      None
+Comment: .text unused
+load_context 00000016
+
+Symbol: load_context
+   Definitions
+      At line 14 in file ..\EmbSysLib\Src\MCU\STM32F7xx\Sys\Keil\RTOScontext.s
+   Uses
+      At line 15 in file ..\EmbSysLib\Src\MCU\STM32F7xx\Sys\Keil\RTOScontext.s
+Comment: load_context used once
+save_context 00000000
+
+Symbol: save_context
+   Definitions
+      At line 4 in file ..\EmbSysLib\Src\MCU\STM32F7xx\Sys\Keil\RTOScontext.s
+   Uses
+      At line 5 in file ..\EmbSysLib\Src\MCU\STM32F7xx\Sys\Keil\RTOScontext.s
+Comment: save_context used once
+3 symbols
+337 symbols in table

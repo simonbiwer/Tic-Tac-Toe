@@ -1,0 +1,69 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             |.text|, CODE, READONLY
+    2 00000000                 THUMB
+    3 00000000         
+    4 00000000         save_context
+                               FUNCTION
+    5 00000000                 EXPORT           save_context
+    6 00000000 F3EF 8008       MRS              r0, msp
+    7 00000004 E920 0FF0       STMDB            r0!, {r4-r11}
+    8 00000008 F380 8808       MSR              msp, r0
+    9 0000000C 4770            BX               lr
+   10 0000000E                 ENDP
+   11 0000000E         
+   12 0000000E         load_context
+                               FUNCTION
+   13 0000000E                 EXPORT           load_context
+   14 0000000E F380 8808       MSR              msp, r0     ;
+   15 00000012 F3EF 8008       MRS              r0, msp
+   16 00000016 E8B0 0FF0       LDMFD            r0!, {r4-r11}
+   17 0000001A F380 8808       MSR              msp, r0
+   18 0000001E 4770            BX               lr
+   19 00000020                 ENDP
+   20 00000020         
+   21 00000020                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\bin\stm32l1xx\rtoscontext.d -o.\bin\stm32l1xx\rtoscontext.o -I.\
+RTE\_Target -IC:\Bin\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\De
+vice\ST\STM32L1xx\Include -IC:\Bin\Keil_v5\ARM\CMSIS\Include --predefine="__EVA
+L SETA 1" --predefine="__UVISION_VERSION SETA 524" --predefine="STM32L100xC SET
+A 1" --predefine="Stack_Size SETA 0xC00" --predefine="Heap_Size SETA 0x0C00" --
+list=.\bin\stm32l1xx\rtoscontext.lst ..\EmbSysLib\Src\MCU\STM32L1xx\Sys\Keil\RT
+OScontext.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 1 in file ..\EmbSysLib\Src\MCU\STM32L1xx\Sys\Keil\RTOScontext.s
+   Uses
+      None
+Comment: .text unused
+load_context 0000000E
+
+Symbol: load_context
+   Definitions
+      At line 12 in file ..\EmbSysLib\Src\MCU\STM32L1xx\Sys\Keil\RTOScontext.s
+   Uses
+      At line 13 in file ..\EmbSysLib\Src\MCU\STM32L1xx\Sys\Keil\RTOScontext.s
+Comment: load_context used once
+save_context 00000000
+
+Symbol: save_context
+   Definitions
+      At line 4 in file ..\EmbSysLib\Src\MCU\STM32L1xx\Sys\Keil\RTOScontext.s
+   Uses
+      At line 5 in file ..\EmbSysLib\Src\MCU\STM32L1xx\Sys\Keil\RTOScontext.s
+Comment: save_context used once
+3 symbols
+338 symbols in table

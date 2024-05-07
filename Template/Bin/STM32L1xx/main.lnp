@@ -1,0 +1,11 @@
+--cpu Cortex-M3
+".\bin\stm32l1xx\main.o"
+".\bin\stm32l1xx\lib.o"
+".\bin\stm32l1xx\startup_stm32l1xx_mdp.o"
+".\bin\stm32l1xx\rtoscontext.o"
+".\bin\stm32l1xx\rtos.o"
+".\bin\stm32l1xx\disp_dip204spi.o"
+--strict --scatter ".\Bin\STM32L1xx\main.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Bin\STM32L1xx\main.map" -o .\Bin\STM32L1xx\main.axf

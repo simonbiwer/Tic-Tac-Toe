@@ -1,0 +1,19 @@
+ver-2.03:
+=========
+Korrektur MCU.* wg. µVision-5
+Korrektur devControlPointer.cpp
+
+ver-2.02:
+=========
+DHCP: Requested IP Address (Code 50) zurücksenden
+Memory_Flash (STM32F4) überarbeitet
+Memory_Flash (STM32F7) hinzu
+OTM8009: Andere PWM-Frequenz
+
+ver-2.01:
+=========
+Display-Refresh hinzu. 
+
+ver-2.00:
+=========
+initial version
